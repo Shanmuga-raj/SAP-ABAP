@@ -1,0 +1,38 @@
+|------|  Forms  |--------------------------------------------------------------------------------------------------------------------------------------|
+		: Used to print and send documents
+
+	Standard Texts:
+		- Used for printing static text in document layout
+		- T-code - SO10
+		- Can able to use this in SAP Scripts, Smartforms, Adobe Forms.
+		- https://blogs.sap.com/2012/08/06/create-transport-standard-text-so10/
+
+	SAP Scripts:
+		- T-code - SE71
+		- Function modules used in SAP Scripts are:
+			> OPEN_FORM
+			> START_FORM
+			> WRITE_FORM
+			> END_FORM
+			> CLOSE_FORM
+		> https://www.tutorialscampus.com/sap-abap/sapscripts.htm
+
+	SmartForms:
+		- T-code - SMARTFORMS
+		- https://youtube.com/playlist?list=PLM3lhmHjSeISdGKM2GJQHY9vgFE86ejY0
+
+
+	Adobeform/PDF Forms:
+		- T-Code - SFP
+		- Can able to interact with the output
+		- Output is in the form of PDF
+		- In adobe form, we need to create an interface, 
+		  the same interface can be used in multiple adobe Forms
+		- To use the Adobeform in Program we need to use 3 Function modules:
+			> FP_JOB_OPEN			: To Open the Spool Job
+			> FP_FUNCTION_MODULE_NAME	: To Generate the name of Genarated Function Module
+			> <FM_NAME>			: To call Genarated Function Module
+			> FP_JOB_CLOSE			: To Close the Spool Job
+
+		- https://wiki.scn.sap.com/wiki/display/ABAP/Adobe+Forms+from+Scratch
+		- https://youtube.com/playlist?list=PLM3lhmHjSeIRGW2wM3DxT82_1kTC7pdSu

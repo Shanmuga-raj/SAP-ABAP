@@ -1,0 +1,142 @@
+|------|  INTERFACES  |----------------------------------------------------------------------------------------------------------------------------------|
+		: Used for System to System Communication
+
+	* TYPES:
+		- RFC (Remote Function Call)
+		- BAPI (Business Application Programming Interface)
+		- ALE (Application Link Enabling)
+		- EDI (Electronic Document Interchange)
+		- IDOC (Intermediate Document)
+		- FTP (File Transfer Protocol)
+		- SFTP (Secure File Transfer Protocol)
+		- SOAP (Simple Object Access Protocol Web Service)
+		- UDDI (Universal Description Discovery and Integration)
+		- REST (REpresentational State Transfer)
+		- API (Application Programming Interface)
+
+
+	* RFC (Remote Function Call):
+	```````````````````````````
+		- Process of calling a Function Module which is residing on different machine from the caller program
+		- Used to call different program on same machine as well
+		- Function call that can handle SAP to SAP and SAP to Non-SAP
+
+		- Types:
+			> sRFC - Synchronous
+			> aRFC - Asynchronous
+			> tRFC - Transactional
+			> qRFC - Queue (d)
+
+		- T-Codes:
+			> SE37 - Function Builder
+			> SM59 - RFC Destination
+
+
+	* BAPI (Business Application Programming Interface):
+	``````````````````````````````````````````````````
+		- It is a Standardized Programming Interface (methods) enabling external applications to access Business Object and data in R/3
+		- BAPIs are defined in BOR (Business Object Repository) as methods of SAP Business Object
+		- They are RFC-Enabled Function modules that enables Non-SAP to SAP Interface
+		- Once Business Object is released it can be used by Non-SAP system
+
+		- Types:
+			> Instance Dependent
+			> Instance Independent
+
+		* CREATION OF BAPI:
+		`````````````````
+
+			- PRE-REQUISITES FOR CREATING FUNCTION MODULE:
+				> Must created one Function Module (SE37) inside a Function Group (SE80) 
+				> Function Module name must start with <namespace>BAPI_<businessobject>_<method> eg., ZBAPI_EMPLOYEE_CREATE
+				> All parameter associated type must begin with <namespace>BAPI_<businessobject> eg., ZBAPI_EMPLOYEE
+				> Export parameter must have one parameter with name 'RETURN' and of Type 'BAPIRET2'
+				> All Import/Export parameter must be pass by value
+				> Function Module must be RFC enabled
+				> Function Module must be released (Goto -> Release)
+
+			- PRE-REQUISITES FOR CREATING BUSINESS OBJECT
+				> Create Business Object using T-code SW01
+				> Utilities -> API Methods -> Add Method (here give FM name)
+				> Object Type -> Change Release status -> Implemented
+				> Object Type -> Change Release status -> Released
+				> Click on generate button
+				> Finally you can check it in BAPI Explorer using T-code BAPI
+
+
+	* IDOC (Intermediate Document):
+	```````````````````````````````
+		- IDoc is a group of segments (segments are like structure)
+		- Standard SAP segments start with E1 whereas custom segments starts with Z1
+		- Two types of Data exchange methods in IDocs are ALE and EDI
+		- IDoc acts as Data Container for both ALE and EDI. Uses ALE processes
+		- Used to exchange data for both SAP to SAP and SAP to Non-SAP
+		- Types:
+			> Inbound Data Transfer		:	Data Coming into SAP Server (Receive)
+			> Outbound Data Transfer	:	Data Moving out of SAP Server (Sent)
+
+			> ALE (Application Link Enabling):
+			``````````````````````````````````
+				- Used when the format of data is not changing between the systems
+				- Used to communicate between servers available at different geographical locations
+				- Exchanging data using IDoc between SAP to SAP systems only
+				- Mostly used to communicate for bulk volumes of data within logical system
+
+			> EDI (Electronic Document Interchange):
+			````````````````````````````````````````
+				- Used when format of data is changing between the systems
+				- Used to exchange business document from SAP to Non-SAP electonically using IDoc
+				- EDI is between SAP to Non-SAP, Non-SAP to SAP and SAP to SAP
+				- Non-SAP systems cannot understand IDoc format so we use middleware technologies like	TIBCO or XI
+				 Then, IDoc is converted into XML and it is given to TIBCO or XI
+				- Deals with small sized documents that does not require much space
+
+
+		- Idoc Structure Consist of 3 parts:
+			> Control Record
+				- Contains Type of IDoc, Message Type, Current Status, Sender, Receiver, etc.,
+				- Stored in EDIDC Table
+				- Direction '1' indicates Outbound, '2' indicates Inbound
+
+			> Data Record
+				- Contains the Data records, commonly called as segments
+				- Stored in EDID2 or EDID4 Table, EDIDD is the Structure
+				- Actual data is Stored in field called SDATA
+
+			> Status Record
+				- Contains information about various stages Idoc has passed through
+				- Stored in EDIDS Table
+				- Status 1 to 42 are for Outbound while 50 to 75 are for Inbound
+
+		Creation of IDoc Interface for BAPI:
+			> Create IDoc (ALE) Interface for BAPI using T-code - BDBG
+			> Create Message type and Create IDoc type
+			> Create RFC Port (WE21) (We have 2 types of Port. TRFC port used in ALE and File port used in EDI)
+
+		Creation of IDOC:
+			> Create Segment using (WE31)
+			> Create Message Type using (WE81)
+			> Create IDoc Type using (WE30)
+			> Associate Message Type and IDoc Type using (WE82)
+			> Define Logical System (SALE/BD54)
+			> Assign Logical system to Client (SALE/SCC4)
+			> Create RFC Destination (SM59)
+			> Create Model View (SALE/BD64)
+			> Create Partner profile in WE20
+
+		Steps for Outbound Process:
+			> Create segments (WE31)
+			> Create IDoc Type (WE30)
+			> Associate Message Type to IDoc Type (WE82)
+			> Create FM for creating IDoc and associated FM to Outbound Process code (or) Create Standalone FM which will create IDoc
+			> Create Port (WE21)
+			> Create Partner profile (WE20)
+
+		Steps for Inbound Process:
+			> Create IDoc Type (WE30)
+			> Associate Message Type to IDoc Type (WE82)
+			> Create FM for processing the IDoc
+			> Define FM characteristics (BD51)
+			> Allocate Inbound FM to Message Type (WE57)
+			> Define Process code (WE42)
+			> Create Partner profile (WE20)

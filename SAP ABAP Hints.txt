@@ -1,0 +1,73 @@
+* Create / Edit Standard text and create a TR:
+	> SO10
+	> Give Text name and click Create/Change
+	> Make changes and save
+
+	> SE09 
+	> Click on create button
+	> Customizing Request
+	> Give Description and Save
+	> Copy Task Number (Not main TR Number)
+
+	> SE38
+	> RSTXTRAN and click on execute
+	> Paste the Tast number and click on execute
+	> Deselect All
+	> Find and select the standard text which we made changes
+	> Click on Enter
+	> Click on Trsfr Texts to Corr.
+
+
+* Import TR from Instance 100 to 110:
+	> SCC1 
+	> Give Source Client as 110
+	> Give TR number (Get from SE09)
+	> Click on Include Tast in Request
+	> Click on start immediately
+	> Click "yes" on promt message
+
+
+* Convert Local Objects to Transport Request:
+	> SE03
+	> Object Directory > Change object directory entries
+	> Further Restriction > Personal Responsible > USERID
+	> Select the object which you want and click on Object Directory
+	> on Pop>up screen give package name and person Responsible
+	> Give TR number and Save the object
+
+
+* Find Program Name/Function Module Name for IDoc:
+	> WE02
+	> Goto the segment
+	> Get Partn. Type, Partner No, Message type from IDoc
+	> Note if its Inbound or Outbound
+
+	> WE20
+	> Search for this Partner Type
+	> Inside Partner Type search for Partner No.
+	> Search for Message Type and double click on that
+	> Goto message control tab then click on process code
+	> Click on Function Module
+
+
+* Upload Image to SAP:
+	> SE78
+	> Graphics
+	> Bitmap
+	> Name
+	> We can use this image by using this name
+
+
+* Create TR for ALV Layout:
+	> Execute the program, when list is displayed
+	> Goto Settings > Layout > Administration
+	> Choose the variant it needs to be Transported
+	> Layout > Transport
+	> If layouts are user layout you have to login with ID of your user
+
+
+* Find Where>used list of any variable using report:
+	> SE38
+	> Execute RS_ABAP_SOURCE_SCAN
+	> Search with variable
+

@@ -1,0 +1,32 @@
+|------|  ENHANCEMENT  |--------------------------------------------------------------------------------------------------------------------------------|
+		: Adding Extra Functionality to SAP Standard Program / ABAP Dictionary / Transactions / Events without modifying SAP Objects.
+
+	Types:
+		- Data Dictionary Enhancement
+		- Customer Exit
+		- Business Transaction Event (BTE)
+		- Business Addin (BADI)
+
+xxx
+		> Implicit Enhancement
+		> Explicit Enhancement - Points, Sections
+		> User-exits
+xxx
+
+	* Data Dictionary Enhancement:
+		- Enhancing SAP Standard Table / Structure
+		- Using Append Structure (.APPEND), Customizing Include (.INCLUDE)
+
+
+	* Customer Exit:
+		- Implement Customer Exit using T-Code CMOD
+		- List Customer Exit using T-Code SMOD
+
+		- Types:
+			> Function Module Exit
+			> Menu Exit
+			> Screen Exit
+
+	* BADI:
+		- SE18 - Checking for BADI Definition
+		- SE19 - Creating the Implementation of BADI
