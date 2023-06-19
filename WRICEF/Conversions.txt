@@ -1,0 +1,12 @@
+|------|  CONVERSION  |-----------------------------------------------------------------------------------------------------------------------------------|
+		: Used to convert data froom one format to another format and from one system to another
+
+	* BDC:
+		- Batch Data Communication
+		- Methods:
+			> Classical Batch Input Method
+			> Call Transaction Method
+
+
+	* LSMC:
+		- T-code is LSMW
