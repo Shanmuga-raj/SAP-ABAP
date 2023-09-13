@@ -66,8 +66,13 @@
 	> If layouts are user layout you have to login with ID of your user
 
 
-* Find Where>used list of any variable using report:
+* Find Where-used list of any variable using report:
 	> SE38
 	> Execute RS_ABAP_SOURCE_SCAN
 	> Search with variable
 
+
+* Create a Batch Job:
+	> Create a Variant
+	> Goto SM36
+	> Give program name, variant name, date and time 
