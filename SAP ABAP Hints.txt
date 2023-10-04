@@ -1,4 +1,5 @@
 * Create / Edit Standard text and create a TR:
+  ````````````````````````````````````````````
 	> SO10
 	> Give Text name and click Create/Change
 	> Make changes and save
@@ -19,6 +20,7 @@
 
 
 * Import TR from Instance 100 to 110:
+  ```````````````````````````````````
 	> SCC1 
 	> Give Source Client as 110
 	> Give TR number (Get from SE09)
@@ -28,6 +30,7 @@
 
 
 * Convert Local Objects to Transport Request:
+  ```````````````````````````````````````````
 	> SE03
 	> Object Directory > Change object directory entries
 	> Further Restriction > Personal Responsible > USERID
@@ -37,6 +40,7 @@
 
 
 * Find Program Name/Function Module Name for IDoc:
+  ````````````````````````````````````````````````
 	> WE02
 	> Goto the segment
 	> Get Partn. Type, Partner No, Message type from IDoc
@@ -51,6 +55,7 @@
 
 
 * Upload Image to SAP:
+  ````````````````````
 	> SE78
 	> Graphics
 	> Bitmap
@@ -59,6 +64,7 @@
 
 
 * Create TR for ALV Layout:
+  `````````````````````````
 	> Execute the program, when list is displayed
 	> Goto Settings > Layout > Administration
 	> Choose the variant it needs to be Transported
@@ -67,12 +73,76 @@
 
 
 * Find Where-used list of any variable using report:
+  ``````````````````````````````````````````````````
 	> SE38
 	> Execute RS_ABAP_SOURCE_SCAN
 	> Search with variable
 
 
 * Create a Batch Job:
+  ```````````````````
 	> Create a Variant
 	> Goto SM36
 	> Give program name, variant name, date and time 
+
+
+* Job Failure:
+  ````````````
+	> Goto SM37 
+	> Give job name
+	> Give User name as *
+	> Check Job Log
+
+	> Select any failed job 
+	> Click on Step
+	> Click on Program name 
+	> Goto -> Variant
+	> Source Directory 
+	> Source Filename
+
+	> Goto AL11
+	> Go to the source directory
+	> check if source file is available or not
+
+
+* To find Role change history:
+  ````````````````````````````
+	> SU01D
+	> Information > Change documents for user
+	> Give From data, select criteria
+	> Execute
+
+
+* Remove Patient Mobile Number:
+  `````````````````````````````
+	> Goto NPAT Table through SE16
+	> Get ADRNR and ADROB field
+
+	> Goto UASE16N 
+	> Give NADR2 as table name
+	> Give ADRNR and ABROB values
+	> In command field give &SAP_EDIT
+	> Patch TELNR field 
+
+
+* Find Background job name using Report name:
+  ```````````````````````````````````````````
+  > Goto TBTCP table
+  > Give program name
+  > execute
+
+
+> Find if T-Code assigned to Roles:
+  `````````````````````````````````
+  > Goto SE16
+  > Goto AGR_USERS table
+  > Give userid and execute
+  > Get all roles assiged to that userid
+  > Goto AGR_1251 table or 
+  > Give all the roles fetched from there
+  > Give Object as S_TCODE
+  > In value field give the T-codes you want to check
+  (or)
+  > Goto AGR_TCODES Table
+  > Give roles
+  > Give T-codes in extended field
