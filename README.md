@@ -4,7 +4,7 @@
 
 ---
 
-#### `1. DATA DICTIONARY - (SE11)`
+#### `1. `[`DATA DICTIONARY`](https://github.com/Shanmuga-raj/SAP-ABAP/blob/master/1.%20Basics%20of%20SAP/02.%20Data%20Dictionary.txt)` - (SE11)`
 ###### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Domains
 ###### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Data Elements
 ###### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Structure
@@ -78,6 +78,7 @@
 ###### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - SAP Scripts
 ###### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Smartforms
 ###### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Adobe Forms
+###### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Web Dynpro
 
 ---
 

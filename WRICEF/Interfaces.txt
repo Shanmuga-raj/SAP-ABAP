@@ -44,8 +44,7 @@
 			> Instance Independent
 
 		* CREATION OF BAPI:
-		`````````````````
-
+		  `````````````````
 			- PRE-REQUISITES FOR CREATING FUNCTION MODULE:
 				> Must created one Function Module (SE37) inside a Function Group (SE80) 
 				> Function Module name must start with <namespace>BAPI_<businessobject>_<method> eg., ZBAPI_EMPLOYEE_CREATE
@@ -62,6 +61,9 @@
 				> Object Type -> Change Release status -> Released
 				> Click on generate button
 				> Finally you can check it in BAPI Explorer using T-code BAPI
+
+			- Table for Business Object Repository (BOR) Basis Data: TOJTB
+			- Table for Business Object Repository (BOR) Detailed information: SWOTLV
 
 
 	* IDOC (Intermediate Document):
@@ -140,3 +142,7 @@
 			> Allocate Inbound FM to Message Type (WE57)
 			> Define Process code (WE42)
 			> Create Partner profile (WE20)
+
+		- https://developers.sap.com/tutorials/aif-idoc-monitoring-interface-create.html
+
+		- https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/idoc-basics-for-functional-consultants/ba-p/13222458

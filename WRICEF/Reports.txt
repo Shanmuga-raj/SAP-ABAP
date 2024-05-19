@@ -15,29 +15,33 @@
 		- Views
 
 
-	* Classical Reports
+	* Classical Reports:
+	````````````````````
 		-	Simple program used to create Output which display information in single list
-		-	Events associated in Classical Reports:
-			> TOP-OF-PAGE				:	Triggered by first WRITE statement to display data on new page
+		-	Events associated in Classical Reports: 
+
+			> INITIALIZATION			:	Providing default values to the input, first event triggeres in program
+			> AT SELECTION-SCREEN			:	Validating user input, triggered after initialization
+			> AT SELECTION-SCREEN ON FIELD		:	Validating individual fields
+			> AT SELECTION-SCREEN OUTPUT		:	Controlling screen elements, used to change screen fields at runtime
+			> AT SELECTION-SCREEN ON VALUE-REQUEST	:	Providing own search help
+			> AT SELECTION-SCREEN ON HELP-REQUEST	:	Providing own documentaion (SE61)
+			> START-OF-SELECTION			:	Processing of program will starts from here
+			> TOP-OF-PAGE				:	Providing headers/ column heading
 			> LOAD OF PROGRAM			:	Triggers when program of type E, M, F or S gets loaded
-			> INITIALIZATION			:	Triggers before displaying selection screen 
-			> AT SELECTION-SCREEN OUTPUT		:	Triggers just before selection screen gets displayed. used to change screen fields at runtime
-			> AT SELECTION-SCREEN			:	Triggers after processing user input on selection screen
-			> AT SELECTION-SCREEN ON FIELD		:
-			> AT SELECTION-SCREEN ON VALUE-REQUEST	:
-			> START-OF-SELECTION			:	Triggers after processing selection screen, after clicking execute icon
-			> END-OF-SELECTION			:	Its for Logical database Reporting
-			> END-OF-PAGE				:	Triggered to display text at end of a page in report
+			> END-OF-SELECTION			:	To Display the ouptut. Its for Logical database Reporting
+			> END-OF-PAGE				:	Triggered to display footers
 
 
-	* Interactive Reports
+	* Interactive Reports:
+	``````````````````````
 		-	User can able to interact with the report
 		-	Summarized information in basic list and detailed information in next list
 		-	Events associated in Interactive Reports:
-			> AT LINE-SELECTION				:	Gets triggered when we double click a line on the list
-			> AT PF<key>					:	For Pre-defined function keys
-			> AT USER-COMMAND				:	It Provides user functions keys
-			> TOP-OF-PAGE DURING LINE SELECTION		:	Top of page for secondary list
+			> AT LINE-SELECTION			:	Gets triggered when we double click a line on the list
+			> AT PF<key>				:	For Pre-defined function keys
+			> AT USER-COMMAND			:	It Provides user functions keys
+			> TOP-OF-PAGE DURING LINE SELECTION	:	Top of page for secondary list
 
 
 	* ALV Reports 

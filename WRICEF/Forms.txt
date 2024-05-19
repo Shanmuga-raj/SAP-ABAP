@@ -1,13 +1,16 @@
 |------|  Forms  |--------------------------------------------------------------------------------------------------------------------------------------|
 		: Used to print and send documents
 
-	Standard Texts:
+	* Standard Texts:
+	`````````````````
 		- Used for printing static text in document layout
 		- T-code - SO10
 		- Can able to use this in SAP Scripts, Smartforms, Adobe Forms.
 		- https://blogs.sap.com/2012/08/06/create-transport-standard-text-so10/
 
-	SAP Scripts:
+
+	* SAP Scripts:
+	``````````````
 		- T-code - SE71
 		- Function modules used in SAP Scripts are:
 			> OPEN_FORM
@@ -17,12 +20,15 @@
 			> CLOSE_FORM
 		> https://www.tutorialscampus.com/sap-abap/sapscripts.htm
 
-	SmartForms:
+
+	* SmartForms:
+	`````````````
 		- T-code - SMARTFORMS
 		- https://youtube.com/playlist?list=PLM3lhmHjSeISdGKM2GJQHY9vgFE86ejY0
 
 
-	Adobeform/PDF Forms:
+	* Adobeform/PDF Forms:
+	``````````````````````
 		- T-Code - SFP
 		- Can able to interact with the output
 		- Output is in the form of PDF
@@ -36,3 +42,19 @@
 
 		- https://wiki.scn.sap.com/wiki/display/ABAP/Adobe+Forms+from+Scratch
 		- https://youtube.com/playlist?list=PLM3lhmHjSeIRGW2wM3DxT82_1kTC7pdSu
+
+
+	* WebDynpro:
+	````````````
+		- It is a Web Based Application, whereas ABAP is a GUI based application
+		- UI Technology used to develop web application > Url > Browser
+
+	Steps:
+		> Create WebDynpro Component - Component Controller
+		> Create one or more windows as per requirement - Window Controller
+		> Create one or more views as per requirement - View Controller
+		> Design the UI elements on the view
+		> Set the properties for UI element then define > implement > handle events
+		> Associate the view with the window
+		> Create the WebDynpro application to generate URL
+		> Create the T-Code for WebDynpro Application in SE93

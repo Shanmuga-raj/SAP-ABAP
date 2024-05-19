@@ -1,0 +1,174 @@
+Data Dictionary:
+````````````````
+	- T-Code SE11
+	- It also called as ABAP Dictionary or DDIC
+
+
+Domain:
+```````
+	- It is a predefined set of values, which can be uesd to define the data type and length of field
+
+
+Data Element:
+`````````````
+	- It is a domain based individual and reusable object.
+	- It defines properties and attributes of particular data field
+	- It provides a description of data field, including field name, label, data type, lenght etc.,
+	- It can be also include documentation and search help
+
+
+Structure:
+``````````
+	- Collection of fields/columns of similar/different data types
+	- Structure does not have any data
+	- Two types of Structure
+		> Include Structure
+			- It is reusable
+			- Can insert at any point of table
+			- Applicable only for Custom table
+
+		> Append Structure
+			- It is not reusable
+			- Can insert only at end of the table
+			- Applicable to both Standard table and Custom table
+
+
+Search Help:
+````````````
+	- Purpose is to display the various possible value for any input field
+	- Also known as F4 Help (Value Help)
+	- Selection Method : It is based on the table or view from where to fetch the data
+	- Dialog Type : Display values immediately, dialog with values restriction, dislog depends upon set of values
+	- Search Help paramater : Fields used to search
+	- LPOS (List of Position) : When values got displayed
+	- SPOS (Screen Position) : Before displaying the values
+	- SDIS (Selection Display) : To make field read only mode
+	- Modify : Can define new data element without changing table field direclty
+	- Two Types of Search Help
+		> Elementary search help - Single search help
+		> Collective search help - Combination of elementary search help
+
+
+MANDT:
+``````
+	- Client Number of SAP System
+
+
+Table:
+``````
+	- SE11 / SE16 / SE16N
+	- Tables can store data
+	- Table with MAND Fields are client dependent or client specific
+	- Table without MAND Fields are client independent table.
+
+
+Types of SAP Data:
+``````````````````
+	- Master data : Accessed very frequently, but rarely changed
+	- Transaction data : Frequently changed, no of records gets increasing continuously
+	- Configuration data : Customize depends on business / customer requirement
+
+
+Data class:
+```````````
+	- Tell us in which portion of database the table data will get stored.
+
+
+Delivery Class:
+```````````````
+	- Used for controlling data transport of table during installation, upgrade and transporting between customer systems.
+
+
+Size category:
+``````````````
+	- To tell us how many no of records can be stored onto that table
+
+
+Table Maintenance Generator: TMG
+````````````````````````````
+	- To maintain table entries. T-Code SM30
+	- Authorization group : &NC& (Any User can maintain the data)
+	- Single Step : Only Overview screen is applicable
+	- Two Step : Both Overview screen and single screen are applicable
+	- Deleting TMG will never delete Table Data
+
+
+Cardinality:
+````````````
+	- The number of rows that match can be none (0), one (1), or many (n) for each table
+	- No of records in key table, corresponds to how many no of records in forrign table
+
+Types of Database Table:
+````````````````````````
+	- Transparent table:
+		> 1:1 relationship between ABAP dictionary and Database
+		> One table in ABAP dictionary corresponds to One table in Database
+
+	- Pooled Table:
+		> Special table types used to store data from several different tables.
+		> N:1 relationship between  ABAP dictionary and Database
+		> Many tables in ABAP dictionary corresponds to One table in Database
+		> Primary Foreign key relationship is not required
+		> Structure of Pooled tables - TABNAME, VARKEY, DATALN, VARDATA
+
+	- Cluster Table:
+		> Special table types used to store data from several different tables.
+		> N:1 relationship between  ABAP dictionary and Database
+		> Many tables in ABAP dictionary corresponds to One table in Database
+		> Primary Foreign key relationship is mandatory
+		> Structure of Cluster table - KEY, PAGENO, VARDATA
+
+
+Views:
+``````
+	- It is a Virtual table that provides a specific view of the data stored in one or more table.
+	- It does not have stores data records.
+
+
+Database View:
+``````````````
+	- Created on top of single or multiple tables
+	- Tables should have relationship between them
+	- Supports both projection and selection
+	- Projection refers to process of Selecting only required fields
+	- Selection refers to process of imposing conditions on accessing the table
+	- This view can be used in SELECT queries
+	- Not possible to generate Table Maintenance
+	- View Created on single table can either be read only or read and change
+	- View Created on multiple table is always read only
+
+
+Projection View:
+````````````````
+	- Created on top of single table only.
+	- Selecting only the required fields from on speicific table
+	- Supports only projection and does not support selection
+	- This view can be used in SELECT queries
+	- Not possible to generate Table Maintenance
+	- Maintenance Status can either be read only or read and change
+
+
+Maintenance View:
+`````````````````
+	- Created on top of single or multiple tables
+	- Purpose of this view is to provide a simplified interface for updating the database tables
+	- Join conditions are proposed by SAP based on selected tables Foreign key relationship.
+	- Supports both projection and selection
+	- This view cannot be used in SELECT queries
+	- Can able to generate Table Maintenance
+	- Tables should have relationship between them
+	- Maintenance Status can either be read only or read and change or read, change, delete, insert
+	- Cardinality should be 1:1
+
+
+Help View:
+``````````
+	- Created on top of single or multiple tables
+	- Purpose of this view is to provide additional information in search options
+	- Tables should have relationship between them
+	- Supports both projection and selection
+	- This view cannot be used in SELECT queries
+	- Not possible to generate Table Maintenance
+	- It is based on left outer join condition
+	- Maintenance Status is read only
+	- Cardinality should be 1:1

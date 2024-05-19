@@ -1,3 +1,20 @@
+* Shortcut Key:
+  `````````````
+	> Ctrl + + Create a new Session
+	> Ctrl + / Move Cursor to Command bar
+	> Ctrl + O Goto line 
+	> Ctrl + Y Select any text on screen
+
+
+* Change Max number of Session from 6 to N:
+  `````````````````````````````````````````
+	> Goto SE38
+	> RSPFLDOC and execute
+	> Give input as rdisp/max_alt_modes and execute
+	> Click on change value
+	> Give value and save
+
+
 * Create / Edit Standard text and create a TR:
   ````````````````````````````````````````````
 	> SO10
@@ -113,36 +130,47 @@
 	> Execute
 
 
-* Remove Patient Mobile Number:
-  `````````````````````````````
-	> Goto NPAT Table through SE16
-	> Get ADRNR and ADROB field
-
-	> Goto UASE16N 
-	> Give NADR2 as table name
-	> Give ADRNR and ABROB values
-	> In command field give &SAP_EDIT
-	> Patch TELNR field 
-
-
 * Find Background job name using Report name:
   ```````````````````````````````````````````
-  > Goto TBTCP table
-  > Give program name
-  > execute
+	> Goto TBTCP table
+	> Give program name
+	> execute
 
 
-> Find if T-Code assigned to Roles:
+* Debug Background Job:
+  `````````````````````
+	> select active job in sm37.
+	> Type "JDBG" command in command field. (No need to type /n or /o)
+	> Double click the job , it will go in debug mode.
+
+
+Find T-Code:
+````````````
+	> SE93
+
+
+* Find if T-Code assigned to Roles:
   `````````````````````````````````
-  > Goto SE16
-  > Goto AGR_USERS table
-  > Give userid and execute
-  > Get all roles assiged to that userid
-  > Goto AGR_1251 table or 
-  > Give all the roles fetched from there
-  > Give Object as S_TCODE
-  > In value field give the T-codes you want to check
-  (or)
-  > Goto AGR_TCODES Table
-  > Give roles
-  > Give T-codes in extended field
+	> Goto SE16
+	> Goto AGR_USERS table
+	> Give userid and execute
+	> Get all roles assiged to that userid
+	> Goto AGR_1251 table or 
+	> Give all the roles fetched from there
+	> Give Object as S_TCODE
+	> In value field give the T-codes you want to check
+	(or)
+	> Goto AGR_TCODES Table
+	> Give roles
+	> Give T-codes in extended field
+
+
+* Find Data Element name using Field Lable:
+  `````````````````````````````````````````
+	> Goto DD04T Table
+	> Give field lable and execute
+
+
+* Find Message class & Message ID using message Text:
+  ```````````````````````````````````````````````````
+  > Search in T100 Table

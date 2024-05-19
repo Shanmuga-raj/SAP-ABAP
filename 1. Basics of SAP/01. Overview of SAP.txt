@@ -1,0 +1,108 @@
+What is SAP?
+	- SAP is a ERP tool.
+	- SAP : System Application and Products in data processing
+	- Introduced by SAP AG in 1972 at Walldorf (Germany)
+	- It is R/3 Architecture (R- Real time 3-Tire Architecture)
+		> Presentation Layer (User Interaction Layer)
+		> Application Layer (Writing Programs and applications)
+		> Database Layer (Store and retrive the data)
+
+
+What is ERP?
+	- ERP : Enterprise Resource Planning
+	- Purpose is to manage any company functions
+	- Company Functions include - Making, Developing, Selling, Financing, etc.,
+
+
+Features of SAP:
+	- It is Multi-lingal software
+	- It is user-based license agreement.
+	- It is an integration of all functions into one common solution.
+
+
+What is SAP Netweaver?
+	- SAP Netweaver is a technology platform, collection of technology
+		> SAP ERP - Enterprise Resource Planning (Material Master, Supplier master, etc.,)
+		> SAP CRM - Customer Relation management (Sales, services & management)
+		> SAP SRM - Supplier Relationship management 
+		> SAP SCM - Supply Chain Management (Production planning, Business forecasting, demand planning)
+		> SAP PLM - Product lifecycle management
+
+
+What is ABAP/4?
+	- It is a 4th Gen Language
+	- It Lies on Application Layer
+	- ABAP : Advanced Business Application Programming Language
+
+
+Two types of Modules in SAP:
+	- Functional Modules:
+		> SAP SD (Sales & Distribution)
+		> SAP MM (Material Management)
+		> SAP PS (Project System)
+		> SAP FICO (Finance & Controlling)
+		> SAP HR (Human Resource)
+		> SAP WM (Warehouse Management)
+
+	- Technical Modules:
+		> SAP BASIS	: Administrating and Monitoring SAP System
+		> SAP ABAP	: To develop the application 
+		> SAP BIBO	: Reporting Tool
+
+
+Application Server Architecture:
+````````````````````````````````
+	> Dispatcher:
+		- All request that come from Presentation Servers are directed first to dispatcher
+		- Dispatcher writes them to dispatcher queue
+		- And pulls the request based on FIFO basis
+
+	> Work Process:
+		- Each request pulled from dispatcher is allocated to first available work process
+		- It handles only one request at a time.
+		- It Needs to address two special memory area.
+			> User Context
+			> Roll Area
+
+	> User Context:
+		- It is a memory area that contains information about the user.
+		- When user logs on, user context is allocated for that logon.
+		- When user logs off, it gets freed.
+
+	> Roll Area:
+		- It is a memory are that contains information about the program execution.
+		- When program runs, roll area is allocated for that program
+		- When program ends, it gets freed.
+
+
+SAP System Landscape:
+`````````````````````
+	> Development	-	Dedicated for developing
+	> Quality		-	Dedicated for testing
+	> Production	-	Used by customer in real-time
+
+	> Changes will be moved from one system to other through Transport Request
+
+
+Package:
+````````
+	- SE21 to create a package
+	- $TMP package is for local objects, it can never be transported
+	- It is a collection/container for objects. Every object in SAP is stored into package.
+
+
+Transport Organizer/Request:
+````````````````````````````
+	- SE09 or SE01 to create Transport Request
+		> Workbench Request
+		> Customization Request
+
+
+Types of Project in SAP:
+````````````````````````
+	> Implementation - Developing everything from scratch / Data Migration from Legacy System.
+	> Support - Maintaining existing business through ticket, change request (CR).
+	> Upgrade - Moving from old version to higer version.
+	> Roll Out - Implementing existing SAP system for different country/regions.
+
+
