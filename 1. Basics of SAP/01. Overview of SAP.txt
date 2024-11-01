@@ -78,9 +78,8 @@ Application Server Architecture:
 SAP System Landscape:
 `````````````````````
 	> Development	-	Dedicated for developing
-	> Quality		-	Dedicated for testing
+	> Quality	-	Dedicated for testing
 	> Production	-	Used by customer in real-time
-
 	> Changes will be moved from one system to other through Transport Request
 
 
@@ -104,5 +103,3 @@ Types of Project in SAP:
 	> Support - Maintaining existing business through ticket, change request (CR).
 	> Upgrade - Moving from old version to higer version.
 	> Roll Out - Implementing existing SAP system for different country/regions.
-
-

@@ -1,12 +1,31 @@
 |------|  CONVERSION  |-----------------------------------------------------------------------------------------------------------------------------------|
-		: Used to convert data froom one format to another format and from one system to another
+		: Used to convert data from one format to another format and from one system to another
 
-	* BDC:
-		- Batch Data Communication
+
+	* BDC: Batch Data Communication
+		- BDC is a technique of transferring data from legacy systems (NON SAP) to SAP
+		- T-Code for recording BDC - SHDB
+		- Outbound Process:
+			> The process of transferring the data from SAP to NON SAP or another SAP server.
+		- Inbound Process:
+			> The process of receiving the data from NON SAP to SAP server.
+
 		- Methods:
-			> Classical Batch Input Method
 			> Call Transaction Method
+				~ Asynchronous processing
+				~ It allows only a single transaction code to be processed.
+				~ It Used for transfer medium amount of data. (less than 1lakh )
+
+			> Session Method / Classical Batch Input Method
+				~ It Used for transfer large amount of data.
+				~ Synchronous processing.
+				~ It allows multiple transaction code be processed.
+
+		- Function Modules used in Session Method:
+			> BDC_OPEN_GROUP
+			> BDC_INSERT (allows multiple transactions to be processed)
+			> BDC_CLOSE_GROUP
 
 
-	* LSMC:
+	* LSMW: Legacy System Migration Workbench
 		- T-code is LSMW

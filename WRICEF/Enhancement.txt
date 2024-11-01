@@ -4,6 +4,7 @@
 		> Enhancement  - Enhancing SAP Functionality in Customer Namespace (Zxxx or Yxxx)
 		> Modification - Enhancing SAP Functionality in SAP Namespace (Should not start with Z or Y)
 
+
 	Types:
 		- Implicit Enhancement
 		- Explicit Enhancement
@@ -15,6 +16,11 @@
 		- User Exit - Modification
 
 
+	* Domain Enhancement:
+		- To add extra data in dropdown for Standard domain
+		- SE11 >Domain > Menu > Goto > Fixed Value Append
+
+
 	* Data Dictionary Enhancement:
 		- Enhancing SAP Standard Table / Structure
 		- Using Append Structure (.APPEND), Customizing Include (.INCLUDE)
@@ -23,6 +29,7 @@
 	* Customer Exit:
 		- Implement Customer Exit using T-Code CMOD
 		- List Customer Exit using T-Code SMOD
+
 
 	* BADI:
 		- SE18 - Checking for BADI Definition

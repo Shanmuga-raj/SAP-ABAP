@@ -9,6 +9,11 @@ Domain:
 	- It is a predefined set of values, which can be uesd to define the data type and length of field
 
 
+Conversion Routine:
+```````````````````
+	- Used to convert data from external format to internal format and vice versa
+
+
 Data Element:
 `````````````
 	- It is a domain based individual and reusable object.
@@ -17,10 +22,29 @@ Data Element:
 	- It can be also include documentation and search help
 
 
+Delivery Class:
+```````````````
+	- It defines which type of table we are creating in SAP
+	- Used for controlling data transport of table during installation, upgrade and transporting between customer systems.
+	- It is a property assigned to an object in the data dictionary which indicates how the object is transported between different systems
+
+
+Data class:
+```````````
+	- It defines which type of data we are going to store in table.
+	- Tell us in which portion of database the table data will get stored.
+	- It keeps all Master Data together, all Transaction Data together, all User Data together and all Organizational Data together.
+
+
+Size category:
+``````````````
+	- To tell us how many no of records can be stored onto that table
+
+
 Structure:
 ``````````
 	- Collection of fields/columns of similar/different data types
-	- Structure does not have any data
+	- Structure does not have any physical data
 	- Two types of Structure
 		> Include Structure
 			- It is reusable
@@ -31,6 +55,54 @@ Structure:
 			- It is not reusable
 			- Can insert only at end of the table
 			- Applicable to both Standard table and Custom table
+
+
+Table:
+``````
+	- SE11 / SE16 / SE16N
+	- Tables can store data
+	- Table with MAND Fields are client dependent or client specific
+	- Table without MAND Fields are client independent table.
+
+
+Primary Key:
+````````````
+	- A primary key is a column, or set of columns, that uniquely identifies each row.
+	- Each table in a relational database should have a primary key.
+	- A primary key column cannot accept null values.
+	- Primary columns have a maximum length of 900 bytes.
+	- No two rows in a table can have the same primary key value, and no column in a primary key can contain the NULL value.
+
+
+Foreign Key:
+````````````
+	- A foreign key links data in one table to data in another table, usually by pointing to the primary key column in the other table
+	- A foreign key allows you to assign data records in the foreign key table and check table. 
+	- By using the entries in the foreign key fields, one record of the foreign key table uniquely identifies one record of the check table.
+
+
+Indexes:
+````````
+	- An index is a sorted copy of database table field which is help to speed up the selection of data.
+
+
+Types of Indexes:
+`````````````````
+	- Primary Index:
+		> Primary index is created automatically by the SAP system using Primary key fields of the table.
+		> This copies the data in sorted form
+
+	- Secondary Index:
+		> Secondary index is created manually and managed by SAP ABAP Consultant using non primary key field.
+		> Maximum 6 secondary index we can create for a particular database table.
+		> Secondary index used Binary Search for that reason searching also faster as compare to primary index.
+
+
+Types of SAP Data:
+``````````````````
+	- Master data : Accessed very frequently, but rarely changed
+	- Transaction data : Frequently changed, no of records gets increasing continuously
+	- Configuration data : Customize depends on business / customer requirement
 
 
 Search Help:
@@ -49,39 +121,58 @@ Search Help:
 		> Collective search help - Combination of elementary search help
 
 
-MANDT:
-``````
-	- Client Number of SAP System
+Cardinality:
+````````````
+	- The number of rows that match can be none (0), one (1), or many (n) for each table
+	- No of records in key table, corresponds to how many no of records in forrign table
 
 
-Table:
-``````
-	- SE11 / SE16 / SE16N
-	- Tables can store data
-	- Table with MAND Fields are client dependent or client specific
-	- Table without MAND Fields are client independent table.
+Table Pool:
+``````````` 
+	- The SAP database stores all the Pooled tables into a single table, which is known as a table pool.
 
 
-Types of SAP Data:
-``````````````````
-	- Master data : Accessed very frequently, but rarely changed
-	- Transaction data : Frequently changed, no of records gets increasing continuously
-	- Configuration data : Customize depends on business / customer requirement
-
-
-Data class:
-```````````
-	- Tell us in which portion of database the table data will get stored.
-
-
-Delivery Class:
+Table cluster:
 ```````````````
-	- Used for controlling data transport of table during installation, upgrade and transporting between customer systems.
+	- All the cluster tables are stored in a single table in the database, and that table is known as a table cluster.
 
 
-Size category:
-``````````````
-	- To tell us how many no of records can be stored onto that table
+Check Table:
+````````````
+	- The check table is the table used by system to check whether the data exist or not in foreign key table field.
+	- Whenever you are trying to create the table, if you are sure the field contains some values that values only you can use in another foreign key Data Base Table.
+
+
+Value Table:
+````````````
+	- Value Table is a table that contains all the valid entries of a domain and this domain can be reused in multiple tables.
+	- This is maintained at domain level.
+
+
+Types of Database Table:
+````````````````````````
+	- Transparent table:
+		> 1:1 relationship between ABAP dictionary and Database
+		> One table in ABAP dictionary corresponds to One table in Database
+		> Usually used to store Master data
+
+	- Pooled Table:
+		> Special table types used to store data from several different tables.
+		> Primary Foreign key relationship is not required
+		> They are defined by being saved in table pools rather than being defined as pooled tables on database
+		> N:1 relationship between  ABAP dictionary and Database
+		> Many tables in ABAP dictionary corresponds to One table in Database
+		> Structure of Pooled tables - TABNAME, VARKEY, DATALN, VARDATA
+		> Pool table is basically use to store Application Data.
+
+	- Cluster Table: (BSEG)
+		> Special table types used to store data from several different tables.
+		> Primary Foreign key relationship is mandatory
+		> They are defined by being saved in table clusters rather than being defined as cluster tables on database
+		> N:1 relationship between  ABAP dictionary and Database
+		> Many tables in ABAP dictionary corresponds to One table in Database
+		> Structure of Cluster table - KEY, PAGENO, VARDATA
+		> Cluster table is basically use to store Application Data.
 
 
 Table Maintenance Generator: TMG
@@ -93,30 +184,20 @@ Table Maintenance Generator: TMG
 	- Deleting TMG will never delete Table Data
 
 
-Cardinality:
-````````````
-	- The number of rows that match can be none (0), one (1), or many (n) for each table
-	- No of records in key table, corresponds to how many no of records in forrign table
-
-Types of Database Table:
-````````````````````````
-	- Transparent table:
-		> 1:1 relationship between ABAP dictionary and Database
-		> One table in ABAP dictionary corresponds to One table in Database
-
-	- Pooled Table:
-		> Special table types used to store data from several different tables.
-		> N:1 relationship between  ABAP dictionary and Database
-		> Many tables in ABAP dictionary corresponds to One table in Database
-		> Primary Foreign key relationship is not required
-		> Structure of Pooled tables - TABNAME, VARKEY, DATALN, VARDATA
-
-	- Cluster Table:
-		> Special table types used to store data from several different tables.
-		> N:1 relationship between  ABAP dictionary and Database
-		> Many tables in ABAP dictionary corresponds to One table in Database
-		> Primary Foreign key relationship is mandatory
-		> Structure of Cluster table - KEY, PAGENO, VARDATA
+Table Maintenance Generator Events:
+```````````````````````````````````
+	- Before saving the data in the database
+	- After saving the data in the database
+	- Before deleting the data displayed
+	- After deleting the data displayed
+	- Creating a new entry
+	- After completely performing the function 'Get original'
+	- Before correcting the contents of a selected field
+	- After correcting the contents of a selected field
+	- After getting the original of an entry
+	- After lock/unlock in the main function module
+	- Before retrieving deleted entries
+	- After retrieving deleted entries etc
 
 
 Views:
@@ -151,6 +232,7 @@ Projection View:
 Maintenance View:
 `````````````````
 	- Created on top of single or multiple tables
+	- It accepts more than two Tables but should be linked using Foreign Key relationship. 
 	- Purpose of this view is to provide a simplified interface for updating the database tables
 	- Join conditions are proposed by SAP based on selected tables Foreign key relationship.
 	- Supports both projection and selection
@@ -172,3 +254,43 @@ Help View:
 	- It is based on left outer join condition
 	- Maintenance Status is read only
 	- Cardinality should be 1:1
+
+
+Buffering:
+``````````
+	- Sometimes we need to access a particular set of records more frequently then others
+	- So rather than fetching the data from database layer everytime we can use buffering
+	- It fetches the data from database layer and stores in a temporary storage in application layer 
+	- It improves performance
+	- We can see buffered data in AL12 > Monitor > Buffers > Table Buffer > Buffer content > Tabel name
+	- Transaction code to reset all table buffer from application layer - /$TAB
+
+
+Types of Buffering:
+```````````````````
+	- Singe Record buffered
+		> Single records get loaded on application layer
+
+	- Generic Area Buffered
+		> Records matches the generic key are loaded in the application	layer buffering
+		> when to use? we will used for Language dependent tables
+
+	- Fully Buffered
+		> Full table records will load in the application layer buffered
+		> Best suitable for frequently accessed and rarely changed
+
+
+Lock Object:
+````````````
+	- It is used to synchronize access to the same data by more than one program. 
+	- Data records are accessed with the help of specific programs. 
+	- Lock objects are used in SAP to avoid the inconsistency when data is inserted into or changed in the database. 
+	- Tables whose data records are to be locked must be defined in a Lock Object, along with their key fields.
+
+
+Types of Lock Objects:
+``````````````````````
+	> Exclusive 
+	> Shared  
+	> Exclusive not cumulative 
+	> Optimistic Lock

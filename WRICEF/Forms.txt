@@ -36,8 +36,8 @@
 		  the same interface can be used in multiple adobe Forms
 		- To use the Adobeform in Program we need to use 3 Function modules:
 			> FP_JOB_OPEN			: To Open the Spool Job
-			> FP_FUNCTION_MODULE_NAME	: To Generate the name of Genarated Function Module
-			> <FM_NAME>			: To call Genarated Function Module
+			> FP_FUNCTION_MODULE_NAME	: To Generate the name of Generated Function Module
+			> <FM_NAME>			: To call Generated Function Module
 			> FP_JOB_CLOSE			: To Close the Spool Job
 
 		- https://wiki.scn.sap.com/wiki/display/ABAP/Adobe+Forms+from+Scratch
